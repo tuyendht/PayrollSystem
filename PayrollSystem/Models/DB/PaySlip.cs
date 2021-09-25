@@ -7,18 +7,13 @@ namespace PayrollSystem.Models.DB
 {
     public partial class PaySlip
     {
-        public PaySlip()
-        {
-            PaySlipItems = new HashSet<PaySlipItem>();
-        }
-
-        public string PaySlipId { get; set; }
-        public string Payment { get; set; }
-        public string EmpId { get; set; }
-        public string PayPeriodId { get; set; }
-
-        public virtual Employee Emp { get; set; }
-        public virtual PayPeroid PayPeriod { get; set; }
-        public virtual ICollection<PaySlipItem> PaySlipItems { get; set; }
+        public int Id { get; set; }
+        public DateTime PayDate { get; set; }
+        public DateTime PayPeriodBeginDate { get; set; }
+        public DateTime PayPeriodEndDate { get; set; }
+        public int PayStatusId { get; set; }
+        public double TotalPayrollCost { get; set; }
+        public double TotalNetPayroll { get; set; }
+        public double Totaltax { get; set; }
     }
 }

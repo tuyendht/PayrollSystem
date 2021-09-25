@@ -17,19 +17,18 @@ namespace PayrollSystem.Models.DB
         {
         }
 
-        public virtual DbSet<Atribute> Atributes { get; set; }
-        public virtual DbSet<AtributeGroup> AtributeGroups { get; set; }
         public virtual DbSet<Company> Companies { get; set; }
-        public virtual DbSet<ComponentItem> ComponentItems { get; set; }
         public virtual DbSet<Department> Departments { get; set; }
         public virtual DbSet<Employee> Employees { get; set; }
-        public virtual DbSet<EmployeeAtribute> EmployeeAtributes { get; set; }
-        public virtual DbSet<EmployeeType> EmployeeTypes { get; set; }
-        public virtual DbSet<PayPeroid> PayPeroids { get; set; }
+        public virtual DbSet<HRAccount> Hraccounts { get; set; }
+        public virtual DbSet<Industry> Industries { get; set; }
+        public virtual DbSet<LegalStructure> LegalStructures { get; set; }
+        public virtual DbSet<ManagePayroll> ManagePayrolls { get; set; }
+        public virtual DbSet<PaySchedule> PaySchedules { get; set; }
+        public virtual DbSet<PayScheduleType> PayScheduleTypes { get; set; }
         public virtual DbSet<PaySlip> PaySlips { get; set; }
-        public virtual DbSet<PaySlipItem> PaySlipItems { get; set; }
-        public virtual DbSet<PeroidAtribute> PeroidAtributes { get; set; }
-        public virtual DbSet<SalaryComponent> SalaryComponents { get; set; }
+        public virtual DbSet<PaySlipDetail> PaySlipDetails { get; set; }
+        public virtual DbSet<PayStatus> PayStatuses { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -44,420 +43,272 @@ namespace PayrollSystem.Models.DB
         {
             modelBuilder.HasAnnotation("Relational:Collation", "SQL_Latin1_General_CP1_CI_AS");
 
-            modelBuilder.Entity<Atribute>(entity =>
-            {
-                entity.HasKey(e => e.AtrId)
-                    .HasName("PK__Atribute__0971CCFD149C1602");
-
-                entity.ToTable("Atribute");
-
-                entity.Property(e => e.AtrId)
-                    .HasMaxLength(10)
-                    .IsUnicode(false)
-                    .HasColumnName("atrID");
-
-                entity.Property(e => e.Code).HasMaxLength(100);
-
-                entity.Property(e => e.Description).HasMaxLength(500);
-
-                entity.Property(e => e.Id)
-                    .HasMaxLength(10)
-                    .IsUnicode(false)
-                    .HasColumnName("ID");
-
-                entity.Property(e => e.Name).HasMaxLength(100);
-
-                entity.HasOne(d => d.IdNavigation)
-                    .WithMany(p => p.Atributes)
-                    .HasForeignKey(d => d.Id)
-                    .HasConstraintName("FK__Atribute__ID__48CFD27E");
-            });
-
-            modelBuilder.Entity<AtributeGroup>(entity =>
-            {
-                entity.ToTable("AtributeGroup");
-
-                entity.Property(e => e.Id)
-                    .HasMaxLength(10)
-                    .IsUnicode(false)
-                    .HasColumnName("ID");
-
-                entity.Property(e => e.ComId)
-                    .HasMaxLength(10)
-                    .IsUnicode(false)
-                    .HasColumnName("comID");
-
-                entity.Property(e => e.Name).HasMaxLength(100);
-
-                entity.HasOne(d => d.Com)
-                    .WithMany(p => p.AtributeGroups)
-                    .HasForeignKey(d => d.ComId)
-                    .HasConstraintName("FK__AtributeG__comID__45F365D3");
-            });
-
             modelBuilder.Entity<Company>(entity =>
             {
-                entity.HasKey(e => e.ComId)
-                    .HasName("PK__Company__9052B576308AE046");
-
                 entity.ToTable("Company");
 
-                entity.HasIndex(e => e.Email, "UQ__Company__A9D10534331288D7")
-                    .IsUnique();
+                entity.Property(e => e.Id).HasColumnName("ID");
 
-                entity.Property(e => e.ComId)
-                    .HasMaxLength(10)
+                entity.Property(e => e.Address)
+                    .IsRequired()
+                    .HasMaxLength(255)
                     .IsUnicode(false)
-                    .HasColumnName("comID");
+                    .HasColumnName("address");
 
-                entity.Property(e => e.Address).HasMaxLength(100);
+                entity.Property(e => e.IndustryId).HasColumnName("industryID");
 
-                entity.Property(e => e.Email)
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
+                entity.Property(e => e.LegalStructureId).HasColumnName("legalStructureID");
 
-                entity.Property(e => e.Name).HasMaxLength(100);
-
-                entity.Property(e => e.Phone)
-                    .HasMaxLength(12)
-                    .IsUnicode(false);
-            });
-
-            modelBuilder.Entity<ComponentItem>(entity =>
-            {
-                entity.HasKey(e => e.ComponentItemId)
-                    .HasName("PK__Componen__114B3873B051351A");
-
-                entity.ToTable("ComponentItem");
-
-                entity.Property(e => e.ComponentItemId)
-                    .HasMaxLength(10)
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasMaxLength(35)
                     .IsUnicode(false)
-                    .HasColumnName("ComponentItemID");
+                    .HasColumnName("name");
 
-                entity.Property(e => e.Formula).HasMaxLength(100);
-
-                entity.Property(e => e.Id)
-                    .HasMaxLength(10)
-                    .IsUnicode(false)
-                    .HasColumnName("ID");
-
-                entity.Property(e => e.Name).HasMaxLength(100);
-
-                entity.HasOne(d => d.IdNavigation)
-                    .WithMany(p => p.ComponentItems)
-                    .HasForeignKey(d => d.Id)
-                    .HasConstraintName("FK__ComponentIte__ID__6477ECF3");
+                entity.Property(e => e.TaxCode).HasColumnName("taxCode");
             });
 
             modelBuilder.Entity<Department>(entity =>
             {
-                entity.HasKey(e => e.DepId)
-                    .HasName("PK__Departme__00D7A2936789A461");
-
                 entity.ToTable("Department");
 
-                entity.Property(e => e.DepId)
-                    .HasMaxLength(10)
+                entity.Property(e => e.Id).HasColumnName("ID");
+
+                entity.Property(e => e.Address)
+                    .IsRequired()
+                    .HasMaxLength(255)
                     .IsUnicode(false)
-                    .HasColumnName("depID");
+                    .HasColumnName("address");
 
-                entity.Property(e => e.ComId)
-                    .HasMaxLength(10)
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasMaxLength(55)
                     .IsUnicode(false)
-                    .HasColumnName("comID");
-
-                entity.Property(e => e.MgrCode).HasColumnName("mgrCode");
-
-                entity.Property(e => e.Name).HasMaxLength(100);
-
-                entity.Property(e => e.NumEmployee).HasColumnName("numEmployee");
-
-                entity.Property(e => e.Office).HasMaxLength(100);
-
-                entity.Property(e => e.Phone)
-                    .HasMaxLength(12)
-                    .IsUnicode(false);
-
-                entity.HasOne(d => d.Com)
-                    .WithMany(p => p.Departments)
-                    .HasForeignKey(d => d.ComId)
-                    .HasConstraintName("FK__Departmen__comID__398D8EEE");
+                    .HasColumnName("name");
             });
 
             modelBuilder.Entity<Employee>(entity =>
             {
-                entity.HasKey(e => e.EmpId)
-                    .HasName("PK__Employee__AFB3EC6D5534F950");
-
                 entity.ToTable("Employee");
 
-                entity.HasIndex(e => e.Email, "UQ__Employee__AB6E616407E65607")
-                    .IsUnique();
+                entity.Property(e => e.Id).HasColumnName("ID");
 
-                entity.Property(e => e.EmpId)
-                    .HasMaxLength(10)
+                entity.Property(e => e.Address)
+                    .IsRequired()
+                    .HasMaxLength(255)
                     .IsUnicode(false)
-                    .HasColumnName("empID");
+                    .HasColumnName("address");
 
-                entity.Property(e => e.Address).HasMaxLength(100);
+                entity.Property(e => e.BankNumber).HasColumnName("bankNumber");
 
-                entity.Property(e => e.DepId)
-                    .HasMaxLength(10)
-                    .IsUnicode(false)
-                    .HasColumnName("depID");
+                entity.Property(e => e.CitizenIdentification).HasColumnName("citizenIdentification");
 
-                entity.Property(e => e.Dob)
-                    .HasColumnType("datetime")
-                    .HasColumnName("DOB")
-                    .HasDefaultValueSql("(getdate())");
+                entity.Property(e => e.CompanyId).HasColumnName("companyID");
 
-                entity.Property(e => e.Email)
+                entity.Property(e => e.DepartmentId).HasColumnName("departmentID");
+
+                entity.Property(e => e.FirstDayAtWork)
+                    .HasColumnType("date")
+                    .HasColumnName("firstDayAtWork");
+
+                entity.Property(e => e.Fullname)
+                    .IsRequired()
                     .HasMaxLength(50)
                     .IsUnicode(false)
-                    .HasColumnName("email");
+                    .HasColumnName("fullname");
 
-                entity.Property(e => e.Gender)
-                    .HasMaxLength(10)
-                    .IsUnicode(false);
+                entity.Property(e => e.Gender).HasColumnName("gender");
 
-                entity.Property(e => e.Id)
-                    .HasMaxLength(10)
+                entity.Property(e => e.PaymentType).HasColumnName("paymentType");
+
+                entity.Property(e => e.PersonalEmailAddress)
+                    .HasMaxLength(50)
                     .IsUnicode(false)
-                    .HasColumnName("ID");
+                    .HasColumnName("personalEmailAddress");
+
+                entity.Property(e => e.PhoneNumber).HasColumnName("phoneNumber");
+
+                entity.Property(e => e.Salary).HasColumnName("salary");
+
+                entity.Property(e => e.SalaryType).HasColumnName("salaryType");
+
+                entity.Property(e => e.TaxCode).HasColumnName("taxCode");
+
+                entity.Property(e => e.WorkEmailAddress)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false)
+                    .HasColumnName("workEmailAddress");
+            });
+
+            modelBuilder.Entity<HRAccount>(entity =>
+            {
+                entity.ToTable("HRAccount");
+
+                entity.HasIndex(e => e.EmailAddress, "UQ__HRAccoun__347C302794876FFC")
+                    .IsUnique();
+
+                entity.Property(e => e.Id).HasColumnName("ID");
+
+                entity.Property(e => e.EmailAddress)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false)
+                    .HasColumnName("emailAddress");
+
+                entity.Property(e => e.Fullname)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false)
+                    .HasColumnName("fullname");
+
+                entity.Property(e => e.Gender).HasColumnName("gender");
+
+                entity.Property(e => e.PhoneNumber).HasColumnName("phoneNumber");
+            });
+
+            modelBuilder.Entity<Industry>(entity =>
+            {
+                entity.ToTable("Industry");
+
+                entity.Property(e => e.Id).HasColumnName("ID");
 
                 entity.Property(e => e.Name)
-                    .HasMaxLength(200)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Phone)
-                    .HasMaxLength(12)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Role).HasDefaultValueSql("((1))");
-
-                entity.Property(e => e.StillWorking)
-                    .HasColumnName("stillWorking")
-                    .HasDefaultValueSql("((1))");
-
-                entity.HasOne(d => d.Dep)
-                    .WithMany(p => p.Employees)
-                    .HasForeignKey(d => d.DepId)
-                    .HasConstraintName("FK__Employee__depID__4316F928");
-
-                entity.HasOne(d => d.IdNavigation)
-                    .WithMany(p => p.Employees)
-                    .HasForeignKey(d => d.Id)
-                    .HasConstraintName("FK__Employee__ID__4222D4EF");
+                    .IsRequired()
+                    .HasMaxLength(55)
+                    .IsUnicode(false)
+                    .HasColumnName("name");
             });
 
-            modelBuilder.Entity<EmployeeAtribute>(entity =>
+            modelBuilder.Entity<LegalStructure>(entity =>
             {
-                entity.ToTable("EmployeeAtribute");
+                entity.ToTable("LegalStructure");
 
-                entity.Property(e => e.Id)
-                    .HasMaxLength(10)
+                entity.Property(e => e.Id).HasColumnName("ID");
+
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasMaxLength(55)
                     .IsUnicode(false)
-                    .HasColumnName("ID");
-
-                entity.Property(e => e.AtrId)
-                    .HasMaxLength(10)
-                    .IsUnicode(false)
-                    .HasColumnName("atrID");
-
-                entity.Property(e => e.EmpId)
-                    .HasMaxLength(10)
-                    .IsUnicode(false)
-                    .HasColumnName("empID");
-
-                entity.Property(e => e.QuantityValue).HasColumnName("quantityValue");
-
-                entity.Property(e => e.UpdateBy).HasMaxLength(100);
-
-                entity.Property(e => e.UpdateDate)
-                    .HasColumnType("datetime")
-                    .HasDefaultValueSql("(getdate())");
-
-                entity.HasOne(d => d.Atr)
-                    .WithMany(p => p.EmployeeAtributes)
-                    .HasForeignKey(d => d.AtrId)
-                    .HasConstraintName("FK__EmployeeA__atrID__4D94879B");
-
-                entity.HasOne(d => d.Emp)
-                    .WithMany(p => p.EmployeeAtributes)
-                    .HasForeignKey(d => d.EmpId)
-                    .HasConstraintName("FK__EmployeeA__empID__4CA06362");
+                    .HasColumnName("name");
             });
 
-            modelBuilder.Entity<EmployeeType>(entity =>
+            modelBuilder.Entity<ManagePayroll>(entity =>
             {
-                entity.ToTable("EmployeeType");
+                entity.ToTable("ManagePayroll");
 
-                entity.Property(e => e.Id)
-                    .HasMaxLength(10)
-                    .IsUnicode(false)
-                    .HasColumnName("ID");
+                entity.Property(e => e.Id).HasColumnName("ID");
 
-                entity.Property(e => e.TypeName).HasMaxLength(100);
+                entity.Property(e => e.CompanyId).HasColumnName("companyID");
+
+                entity.Property(e => e.HrId).HasColumnName("hrID");
             });
 
-            modelBuilder.Entity<PayPeroid>(entity =>
+            modelBuilder.Entity<PaySchedule>(entity =>
             {
-                entity.HasKey(e => e.PayPeriodId)
-                    .HasName("PK__PayPeroi__66B8DF9EBA6B1F23");
+                entity.ToTable("PaySchedule");
 
-                entity.ToTable("PayPeroid");
+                entity.Property(e => e.Id).HasColumnName("ID");
 
-                entity.Property(e => e.PayPeriodId)
-                    .HasMaxLength(10)
+                entity.Property(e => e.CompanyId).HasColumnName("companyID");
+
+                entity.Property(e => e.OtherPayDay)
+                    .HasMaxLength(20)
                     .IsUnicode(false)
-                    .HasColumnName("PayPeriodID");
+                    .HasColumnName("otherPayDay");
 
-                entity.Property(e => e.ComId)
-                    .HasMaxLength(10)
+                entity.Property(e => e.PayDay)
+                    .IsRequired()
+                    .HasMaxLength(20)
                     .IsUnicode(false)
-                    .HasColumnName("comID");
+                    .HasColumnName("payDay");
 
-                entity.Property(e => e.PayPeriodName).HasMaxLength(100);
+                entity.Property(e => e.PayScheduleType).HasColumnName("payScheduleType");
+            });
 
-                entity.HasOne(d => d.Com)
-                    .WithMany(p => p.PayPeroids)
-                    .HasForeignKey(d => d.ComId)
-                    .HasConstraintName("FK__PayPeroid__comID__5070F446");
+            modelBuilder.Entity<PayScheduleType>(entity =>
+            {
+                entity.ToTable("PayScheduleType");
+
+                entity.Property(e => e.Id).HasColumnName("ID");
+
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasMaxLength(55)
+                    .IsUnicode(false)
+                    .HasColumnName("name");
             });
 
             modelBuilder.Entity<PaySlip>(entity =>
             {
                 entity.ToTable("PaySlip");
 
-                entity.Property(e => e.PaySlipId)
-                    .HasMaxLength(10)
-                    .IsUnicode(false)
-                    .HasColumnName("PaySlipID");
+                entity.Property(e => e.Id).HasColumnName("ID");
 
-                entity.Property(e => e.EmpId)
-                    .HasMaxLength(10)
-                    .IsUnicode(false)
-                    .HasColumnName("empID");
+                entity.Property(e => e.PayDate)
+                    .HasColumnType("date")
+                    .HasColumnName("payDate")
+                    .HasDefaultValueSql("(getdate())");
 
-                entity.Property(e => e.PayPeriodId)
-                    .HasMaxLength(10)
-                    .IsUnicode(false)
-                    .HasColumnName("PayPeriodID");
+                entity.Property(e => e.PayPeriodBeginDate)
+                    .HasColumnType("date")
+                    .HasColumnName("payPeriodBeginDate");
 
-                entity.Property(e => e.Payment).HasMaxLength(100);
+                entity.Property(e => e.PayPeriodEndDate)
+                    .HasColumnType("date")
+                    .HasColumnName("payPeriodEndDate");
 
-                entity.HasOne(d => d.Emp)
-                    .WithMany(p => p.PaySlips)
-                    .HasForeignKey(d => d.EmpId)
-                    .HasConstraintName("FK__PaySlip__empID__5812160E");
+                entity.Property(e => e.PayStatusId).HasColumnName("payStatusID");
 
-                entity.HasOne(d => d.PayPeriod)
-                    .WithMany(p => p.PaySlips)
-                    .HasForeignKey(d => d.PayPeriodId)
-                    .HasConstraintName("FK__PaySlip__PayPeri__59063A47");
+                entity.Property(e => e.TotalNetPayroll).HasColumnName("totalNetPayroll");
+
+                entity.Property(e => e.TotalPayrollCost).HasColumnName("totalPayrollCost");
+
+                entity.Property(e => e.Totaltax).HasColumnName("totaltax");
             });
 
-            modelBuilder.Entity<PaySlipItem>(entity =>
+            modelBuilder.Entity<PaySlipDetail>(entity =>
             {
-                entity.ToTable("PaySlipItem");
+                entity.ToTable("PaySlipDetail");
 
-                entity.Property(e => e.PaySlipItemId)
-                    .HasMaxLength(10)
-                    .IsUnicode(false)
-                    .HasColumnName("PaySlipItemID");
+                entity.Property(e => e.Id).HasColumnName("ID");
 
-                entity.Property(e => e.ComponentItemId)
-                    .HasMaxLength(10)
-                    .IsUnicode(false)
-                    .HasColumnName("ComponentItemID");
+                entity.Property(e => e.Benefit).HasColumnName("benefit");
 
-                entity.Property(e => e.Deduction).HasColumnType("decimal(18, 2)");
+                entity.Property(e => e.Bonus).HasColumnName("bonus");
 
-                entity.Property(e => e.Earning).HasColumnType("decimal(18, 2)");
+                entity.Property(e => e.Deduction).HasColumnName("deduction");
 
-                entity.Property(e => e.PaySlipId)
-                    .HasMaxLength(10)
-                    .IsUnicode(false)
-                    .HasColumnName("PaySlipID");
+                entity.Property(e => e.DoubletimeWorkingHours).HasColumnName("doubletimeWorkingHours");
 
-                entity.Property(e => e.PaySlipItemName).HasMaxLength(100);
+                entity.Property(e => e.EmployeeId).HasColumnName("employeeID");
 
-                entity.HasOne(d => d.ComponentItem)
-                    .WithMany(p => p.PaySlipItems)
-                    .HasForeignKey(d => d.ComponentItemId)
-                    .HasConstraintName("FK__PaySlipIt__Compo__6754599E");
+                entity.Property(e => e.GrossPay).HasColumnName("grossPay");
 
-                entity.HasOne(d => d.PaySlip)
-                    .WithMany(p => p.PaySlipItems)
-                    .HasForeignKey(d => d.PaySlipId)
-                    .HasConstraintName("FK__PaySlipIt__PaySl__68487DD7");
+                entity.Property(e => e.HoursOff).HasColumnName("hoursOff");
+
+                entity.Property(e => e.NetPay).HasColumnName("netPay");
+
+                entity.Property(e => e.OvertimeWorkingHours).HasColumnName("overtimeWorkingHours");
+
+                entity.Property(e => e.PaySlipId).HasColumnName("paySlipID");
+
+                entity.Property(e => e.Tax).HasColumnName("tax");
+
+                entity.Property(e => e.WorkingHours).HasColumnName("workingHours");
             });
 
-            modelBuilder.Entity<PeroidAtribute>(entity =>
+            modelBuilder.Entity<PayStatus>(entity =>
             {
-                entity.ToTable("PeroidAtribute");
+                entity.ToTable("PayStatus");
 
-                entity.Property(e => e.Id)
-                    .HasMaxLength(10)
+                entity.Property(e => e.Id).HasColumnName("ID");
+
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasMaxLength(55)
                     .IsUnicode(false)
-                    .HasColumnName("ID");
-
-                entity.Property(e => e.AtrId)
-                    .HasMaxLength(10)
-                    .IsUnicode(false)
-                    .HasColumnName("atrID");
-
-                entity.Property(e => e.AtributeName)
-                    .HasMaxLength(100)
-                    .HasColumnName("atributeName");
-
-                entity.Property(e => e.EmpId)
-                    .HasMaxLength(10)
-                    .IsUnicode(false)
-                    .HasColumnName("empID");
-
-                entity.Property(e => e.PayPeriodId)
-                    .HasMaxLength(10)
-                    .IsUnicode(false)
-                    .HasColumnName("PayPeriodID");
-
-                entity.HasOne(d => d.Atr)
-                    .WithMany(p => p.PeroidAtributes)
-                    .HasForeignKey(d => d.AtrId)
-                    .HasConstraintName("FK__PeroidAtr__atrID__534D60F1");
-
-                entity.HasOne(d => d.Emp)
-                    .WithMany(p => p.PeroidAtributes)
-                    .HasForeignKey(d => d.EmpId)
-                    .HasConstraintName("FK__PeroidAtr__empID__5535A963");
-
-                entity.HasOne(d => d.PayPeriod)
-                    .WithMany(p => p.PeroidAtributes)
-                    .HasForeignKey(d => d.PayPeriodId)
-                    .HasConstraintName("FK__PeroidAtr__PayPe__5441852A");
-            });
-
-            modelBuilder.Entity<SalaryComponent>(entity =>
-            {
-                entity.ToTable("SalaryComponent");
-
-                entity.Property(e => e.Id)
-                    .HasMaxLength(10)
-                    .IsUnicode(false)
-                    .HasColumnName("ID");
-
-                entity.Property(e => e.ComId)
-                    .HasMaxLength(10)
-                    .IsUnicode(false)
-                    .HasColumnName("comID");
-
-                entity.Property(e => e.Name).HasMaxLength(100);
-
-                entity.HasOne(d => d.Com)
-                    .WithMany(p => p.SalaryComponents)
-                    .HasForeignKey(d => d.ComId)
-                    .HasConstraintName("FK__SalaryCom__comID__619B8048");
+                    .HasColumnName("name");
             });
 
             OnModelCreatingPartial(modelBuilder);

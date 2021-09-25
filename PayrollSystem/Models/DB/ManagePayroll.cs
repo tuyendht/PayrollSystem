@@ -5,10 +5,10 @@ using System.Collections.Generic;
 
 namespace PayrollSystem.Models.DB
 {
-    public partial class Department
+    public partial class ManagePayroll
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string Address { get; set; }
+        public int HrId { get; set; }
+        public int CompanyId { get; set; }
     }
 }

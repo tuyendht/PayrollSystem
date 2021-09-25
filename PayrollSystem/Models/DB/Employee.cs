@@ -7,30 +7,21 @@ namespace PayrollSystem.Models.DB
 {
     public partial class Employee
     {
-        public Employee()
-        {
-            EmployeeAtributes = new HashSet<EmployeeAtribute>();
-            PaySlips = new HashSet<PaySlip>();
-            PeroidAtributes = new HashSet<PeroidAtribute>();
-        }
-
-        public string EmpId { get; set; }
-        public string Name { get; set; }
-        public string Gender { get; set; }
-        public int? Age { get; set; }
-        public string Phone { get; set; }
-        public string Email { get; set; }
-        public DateTime? Dob { get; set; }
+        public int Id { get; set; }
+        public int CompanyId { get; set; }
+        public int DepartmentId { get; set; }
+        public string Fullname { get; set; }
+        public bool? Gender { get; set; }
+        public DateTime FirstDayAtWork { get; set; }
+        public string WorkEmailAddress { get; set; }
+        public string PersonalEmailAddress { get; set; }
+        public double Salary { get; set; }
+        public bool SalaryType { get; set; }
+        public int CitizenIdentification { get; set; }
         public string Address { get; set; }
-        public bool? Role { get; set; }
-        public bool? StillWorking { get; set; }
-        public string Id { get; set; }
-        public string DepId { get; set; }
-
-        public virtual Department Dep { get; set; }
-        public virtual EmployeeType IdNavigation { get; set; }
-        public virtual ICollection<EmployeeAtribute> EmployeeAtributes { get; set; }
-        public virtual ICollection<PaySlip> PaySlips { get; set; }
-        public virtual ICollection<PeroidAtribute> PeroidAtributes { get; set; }
+        public int? PhoneNumber { get; set; }
+        public int? TaxCode { get; set; }
+        public int? BankNumber { get; set; }
+        public bool PaymentType { get; set; }
     }
 }
