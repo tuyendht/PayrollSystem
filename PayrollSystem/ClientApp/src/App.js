@@ -1,22 +1,26 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router';
-import { Layout } from './components/Layout';
-import { Home } from './components/Home';
-import { FetchData } from './components/FetchData';
-import { Counter } from './components/Counter';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Login from "./components/login.component";
 
-import './custom.css'
 
 export default class App extends Component {
   static displayName = App.name;
 
   render () {
-    return (
-      <Layout>
-        <Route exact path='/' component={Home} />
-        <Route path='/counter' component={Counter} />
-        <Route path='/fetch-data' component={FetchData} />
-      </Layout>
-    );
+      return (<Router>
+          <div className="App">
+              <div className="outer">
+                  <div className="inner">
+                      <Switch>
+                          <Route exact path='/' component={Login} />
+                          <Route path="/sign-in" component={Login} />
+
+                      </Switch>
+                  </div>
+              </div>
+          </div></Router>
+      );
   }
 }

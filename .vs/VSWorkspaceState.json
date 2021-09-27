@@ -1,6 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\PayrollSystem",
+    "\\PayrollSystem\\ClientApp",
+    "\\PayrollSystem\\ClientApp\\src"
   ],
   "SelectedNode": "\\PayrollSystem.sln",
   "PreviewInSolutionExplorer": false
