@@ -3,7 +3,7 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Login from "./components/Loginform/login.component";
-import Sidebar from "./components/Sidebar/sidebar.js";
+import Layout from "./components/Layout/layout.js";
 
 
 export default class App extends Component {
@@ -13,10 +13,10 @@ export default class App extends Component {
       return (
         <Router>
             {
-                <div className="wrapper">
-                   <Sidebar />
+                <Layout >
 
-                </div>
+
+                </Layout>
             /* <div className="App">
                 <div className="outer">
                     <div className="inner">

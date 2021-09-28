@@ -103,6 +103,42 @@ body, html, .App, #root, .outer {
     }
 
 /* sidebar */
+#sidebar .user .navbar .content-parent{
+    height: 0px;
+    overflow: hidden;
+    transition: height ease 1s;
+}
+#sidebar .user .navbar .content-parent.show{
+    height: auto;
+}
+#sidebar .user div.navbar a {
+    float: left;
+}
+.arrow {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    margin-left: 5px;
+    display: inline-block;
+    padding: 2px;
+  }
+  .down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+  }
+  #sidebar .list-group .list-group-item{
+    background: #7386D5;
+  }
+#sidebar .user div.navbar{
+    background: #7386D5;
+    margin: 0px;
+    border: 0px;
+}
+.avatar {
+    vertical-align: middle;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
 .wrapper {
     display: flex;
     align-items: stretch;
@@ -241,7 +277,12 @@ a.article:hover {
 /* ---------------------------------------------------
     CONTENT STYLE
 ----------------------------------------------------- */
-
+div.main-panel {
+    width: 100%;
+    padding: 20px;
+    min-height: 100vh;
+    transition: all 0.3s;
+}
 #content {
     width: 100%;
     padding: 20px;

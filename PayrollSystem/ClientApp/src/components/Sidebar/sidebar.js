@@ -1,66 +1,56 @@
-import React, { Component } from "react";
-export default class Sidebar extends Component{
+import React, { Component,useState } from "react";
+import {GrContactInfo, GrEdit, GrUserSettings,GrContact} from 'react-icons/gr'
+import { IoMdUmbrella } from "react-icons/io";
+import { IconContext } from "react-icons/lib";
+import { AiOutlineBarChart ,AiFillCarryOut} from "react-icons/ai";
+import { HiOutlineReceiptTax} from "react-icons/hi";
+ function Sidebar(){
+    const [isCollapse,setIsCollapse] = useState(false);
     
-    render() {
         return (
 
         <><nav id="sidebar">
                 <div className="sidebar-header">
                     <h3>Payroll System</h3>
                 </div>
-
-                <ul className="list-unstyled components">
-                    <li className="active">
-                        <a data-toggle="collapse" aria-expanded="false" className="dropdown-toggle">
-                            <i className="fas fa-home"></i>
-                            Home
+                <div className="user">
+                    <div className="navbar">
+                        <img className="avatar" alt="tets" src="https://www.w3schools.com/howto/img_avatar.png"></img>
+                        <a 
+                            className={isCollapse ? "collapsed" : ""} 
+                            data-toggle="collapse" 
+                            href="#infor"
+                            onClick= {() => setIsCollapse(!isCollapse)}
+                        >
+                            <span>Tran cong minh hieu</span>
+                            <i class="arrow down"></i>
                         </a>
-                        <ul className="collapse list-unstyled" id="homeSubmenu">
-                            <li>
-                                <a>Home 1</a>
-                            </li>
-                            <li>
-                                <a>Home 2</a>
-                            </li>
-                            <li>
-                                <a>Home 3</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a>
-                            <i className="fas fa-briefcase"></i>
-                            About
-                        </a>
-                        <a data-toggle="collapse" aria-expanded="false" className="dropdown-toggle">
-                            <i className="fas fa-copy"></i>
-                            Pages
-                        </a>
-                        <ul className="collapse list-unstyled" id="pageSubmenu">
-                            <li>
-                                <a>Page 1</a>
-                            </li>
-                            <li>
-                                <a>Page 2</a>
-                            </li>
-                            <li>
-                                <a>Page 3</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-
-            </nav>
-            <div id="content">
-                    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                        <div class="container-fluid">
-                            <button type="button" id="sidebarCollapse" class="btn btn-info">
-                                <i class="fas fa-align-left"></i>
-                                <span>Toggle Sidebar</span>
-                            </button>
+                        <div className={isCollapse ? "content-parent show" : "content-parent"}>
+                            <div className="content">
+                                <IconContext.Provider value={{color : "black", size: "1.2em"}}>
+                                <div className="list-group list-group-flush">
+                                    <li class="list-group-item"><strong><GrContactInfo />Profile</strong></li>
+                                    <li class="list-group-item"><GrEdit />Edit Profile</li>
+                                    <li class="list-group-item"><GrUserSettings />Setting</li>
+                                </div>
+                                </IconContext.Provider>
+                            </div>
                         </div>
-                    </nav>
-                </div></>
+                    </div>
+                </div>
+                <IconContext.Provider value={{color : "black", size: "1.2em"}}>
+                <div className="list-group">
+                    <li class="list-group-item"><AiFillCarryOut />Pay Runs</li>
+                    <li class="list-group-item"><HiOutlineReceiptTax />Taxes & Forms</li>
+                    <li class="list-group-item"><IoMdUmbrella />Benefits</li>
+                    <li class="list-group-item"><AiOutlineBarChart />Reports</li>
+                    <li class="list-group-item"><GrContact />Contact Support</li>
+                    
+                </div>
+                </IconContext.Provider>
+            </nav>
+                </>
         );
-    }
-}
+    
+};
+export default Sidebar
