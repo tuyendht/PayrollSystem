@@ -1,7 +1,9 @@
 import React, { Component,useState } from "react";
+import { NavLink } from 'reactstrap';
 import {GrContactInfo, GrEdit, GrUserSettings,GrContact} from 'react-icons/gr'
 import { IoMdUmbrella } from "react-icons/io";
 import { IconContext } from "react-icons/lib";
+import { Link } from 'react-router-dom';
 import { AiOutlineBarChart ,AiFillCarryOut} from "react-icons/ai";
 import { HiOutlineReceiptTax} from "react-icons/hi";
  function Sidebar(){
@@ -40,12 +42,21 @@ import { HiOutlineReceiptTax} from "react-icons/hi";
                 </div>
                 <IconContext.Provider value={{color : "black", size: "1.2em"}}>
                 <div className="list-group">
-                    <li class="list-group-item"><AiFillCarryOut />Pay Runs</li>
-                    <li class="list-group-item"><HiOutlineReceiptTax />Taxes & Forms</li>
-                    <li class="list-group-item"><IoMdUmbrella />Benefits</li>
-                    <li class="list-group-item"><AiOutlineBarChart />Reports</li>
-                    <li class="list-group-item"><GrContact />Contact Support</li>
-                    
+                    <li class="list-group-item">
+                    <NavLink tag={Link} className="text-light" to="/"><AiFillCarryOut />Pay Runs</NavLink>
+                    </li>
+                    <li class="list-group-item">
+                    <NavLink tag={Link} className="text-light" to="/taxes"><HiOutlineReceiptTax />Taxes & Forms</NavLink>
+                    </li>
+                    <li class="list-group-item">
+                    <NavLink tag={Link} className="text-light" to="/benefits"><IoMdUmbrella />Benefits</NavLink>
+                    </li>
+                    <li class="list-group-item">
+                    <NavLink tag={Link} className="text-light" to="/reports"><AiOutlineBarChart />Reports</NavLink>
+                    </li>
+                    <li class="list-group-item">
+                    <NavLink tag={Link} className="text-light" to="/contact"><GrContact />Contact Support</NavLink>
+                    </li>
                 </div>
                 </IconContext.Provider>
             </nav>
