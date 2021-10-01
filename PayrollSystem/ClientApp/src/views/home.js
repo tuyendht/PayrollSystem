@@ -3,7 +3,7 @@ function Home(){
 return (
     <>
         <div className ="">
-           <strong>Home page</strong> 
+           <strong>Home page Hello </strong> 
         </div>
         
     </>
