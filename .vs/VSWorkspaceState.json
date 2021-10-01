@@ -3,7 +3,11 @@
     "",
     "\\PayrollSystem",
     "\\PayrollSystem\\ClientApp",
-    "\\PayrollSystem\\ClientApp\\src"
+    "\\PayrollSystem\\ClientApp\\src",
+    "\\PayrollSystem\\ClientApp\\src\\components",
+    "\\PayrollSystem\\ClientApp\\src\\components\\Loginform",
+    "\\PayrollSystem\\ClientApp\\src\\components\\Nvarbar",
+    "\\PayrollSystem\\ClientApp\\src\\components\\Sidebar"
   ],
   "SelectedNode": "\\PayrollSystem.sln",
   "PreviewInSolutionExplorer": false
