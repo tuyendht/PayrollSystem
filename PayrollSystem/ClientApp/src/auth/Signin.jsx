@@ -13,7 +13,7 @@ const uiConfig = {
   // Popup signin flow rather than redirect flow.
   signInFlow: 'redirect',
   // Redirect to /signedIn after sign in is successful. Alternatively you can provide a callbacks.signInSuccess function.
-  signInSuccessUrl: '/SignIn',
+  signInSuccessUrl: '/home',
   signInOptions: [
     firebase.auth.GoogleAuthProvider.PROVIDER_ID
   ],
