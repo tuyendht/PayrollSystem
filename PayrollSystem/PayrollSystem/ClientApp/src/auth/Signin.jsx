@@ -22,11 +22,6 @@ const uiConfig = {
 function SignIn() {
   return (
     <div>
-      <div className="text-center">
-        <h2>Login With: </h2>
-
-        
-      </div>
       <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
     </div>
   );

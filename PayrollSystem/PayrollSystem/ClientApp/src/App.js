@@ -11,6 +11,7 @@ import SignIn from './auth/Signin';
 import Layout from "./components/Layout/layout.js";
 import Home from "./views/home.js"
 import Taxes from "./views/taxes.js"
+import Register from './views/register';
 
 
 // Configure Firebase.
@@ -27,39 +28,33 @@ const config = {
 firebase.initializeApp(config);
 
 function App() {
-
-
-
-
     // Listen to the Firebase Auth state and set the local state.
     // Handle firebase auth change
-    const [isSignedIn, setIsSignedIn] = useState(false); // Local signed-in state.
+    const [isSignedIn, setIsSignedIn] = useState(false);
+    const [name, setName] = useState(''); // Local signed-in state.
     useEffect(() => {
         const unregisterAuthObserver = firebase.auth().onAuthStateChanged(user => {
-            // if(!user){
-
-            //   return;
-            // }
             console.log('Logged in user: ', user.displayName);
-            // const token = await user.getIdToken();
-            // console.log('Logged in user: ', token);
+            setName(user.displayName)
             setIsSignedIn(!!user);
+            
         });
         return () => unregisterAuthObserver(); // Make sure we un-register Firebase observers when the component unmounts.
     }, []);
-
-
     return (
         <div className="App">
             <Suspense fallback={<div>Loading ...</div>}>
                 <BrowserRouter>
+                <Layout dataFromParent={name}>
                     <Switch>
                         {/*<Route exact path='/' component={Home} />*/}
-                        <Route path="/home" component={Home} />
+                        <Route exact path='/' component={Home} />
+                        <Route path='/home' component={Home} />
                         <Route path='/taxes' component={Taxes} />
-                        <Route exact path='/' component={SignIn} />
-                        <Route path="/sign-in" component={SignIn} />
+                        <Route path='/register' component={Register} />
+                        
                     </Switch>
+                </Layout>
                 </BrowserRouter>
             </Suspense>
         </div>

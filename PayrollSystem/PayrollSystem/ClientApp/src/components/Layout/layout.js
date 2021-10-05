@@ -4,22 +4,23 @@ import Sidebar from '../Sidebar/sidebar';
 import NvarbarAdmin from '../Nvarbar/NvarbarAdmin.js';
 import { Switch, Route } from "react-router-dom";
 // import routes from "routes.js";
-export default class Layout extends Component{
-    render(){
+ function Layout(props){
+    
         return (
             <>
             <div className="wrapper">
-                <Sidebar />
+                <Sidebar dataFromParent={props.dataFromParent}/>
                 <div className="main-panel">
-                    <NvarbarAdmin />
+                    <NvarbarAdmin dataFromParent={props.dataFromParent}/>
                     <div id="content">
                         <Container>
-                            {this.props.children}
+                            {props.children}
                         </Container>
                     </div>
                 </div>
             </div>
             </>
         );
-        }
-}
+        
+};
+export default Layout

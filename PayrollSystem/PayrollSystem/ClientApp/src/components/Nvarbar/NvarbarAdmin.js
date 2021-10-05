@@ -1,6 +1,8 @@
 import React, { Component } from "react";
-export default class NvarbarAdmin extends Component{
-    render() {
+import { Button } from "reactstrap";
+import SignIn from '../../auth/Signin';
+ function NvarbarAdmin(props){
+    
         return (
             <>
             <nav className="navbar navbar-expand-sm bg-light navbar-light">
@@ -14,9 +16,20 @@ export default class NvarbarAdmin extends Component{
                             </div>
                         </form>
                     </div>
+                    {props.dataFromParent !== null && (
+                        <button className="btn-primary">
+                            Logout
+                        </button>
+                    )}
+                    {props.dataFromParent === null && (
+                        <SignIn />
+                    )}
+                    
+                    
                  </div>
             </nav>
             </>
         );
-    }
-}
+    };
+
+export default NvarbarAdmin

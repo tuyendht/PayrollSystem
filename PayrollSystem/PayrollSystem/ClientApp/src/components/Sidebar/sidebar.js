@@ -6,7 +6,7 @@ import { IconContext } from "react-icons/lib";
 import { Link } from 'react-router-dom';
 import { AiOutlineBarChart ,AiFillCarryOut} from "react-icons/ai";
 import { HiOutlineReceiptTax} from "react-icons/hi";
- function Sidebar(){
+ function Sidebar(props){
     const [isCollapse,setIsCollapse] = useState(false);
     
         return (
@@ -18,22 +18,22 @@ import { HiOutlineReceiptTax} from "react-icons/hi";
                 <div className="user">
                     <div className="navbar">
                         <img className="avatar" alt="tets" src="https://www.w3schools.com/howto/img_avatar.png"></img>
-                        <a 
+                        <a  
                             className={isCollapse ? "collapsed" : ""} 
                             data-toggle="collapse" 
                             href="#infor"
                             onClick= {() => setIsCollapse(!isCollapse)}
                         >
-                            <span>Tran cong minh hieu</span>
-                            <i class="arrow down"></i>
+                            <span className="text-left">{props.dataFromParent}</span>
+                            <i className="arrow down"></i>
                         </a>
                         <div className={isCollapse ? "content-parent show" : "content-parent"}>
                             <div className="content">
                                 <IconContext.Provider value={{color : "black", size: "1.2em"}}>
                                 <div className="list-group list-group-flush">
-                                    <li class="list-group-item"><strong><GrContactInfo />Profile</strong></li>
-                                    <li class="list-group-item"><GrEdit />Edit Profile</li>
-                                    <li class="list-group-item"><GrUserSettings />Setting</li>
+                                    <li className="list-group-item"><strong><GrContactInfo />Profile</strong></li>
+                                    <li className="list-group-item"><GrEdit />Edit Profile</li>
+                                    <li className="list-group-item"><GrUserSettings />Setting</li>
                                 </div>
                                 </IconContext.Provider>
                             </div>
@@ -42,19 +42,22 @@ import { HiOutlineReceiptTax} from "react-icons/hi";
                 </div>
                 <IconContext.Provider value={{color : "black", size: "1.2em"}}>
                 <div className="list-group">
-                    <li class="list-group-item">
-                    <NavLink tag={Link} className="text-light" to="/"><AiFillCarryOut />Pay Runs</NavLink>
+                    <li className="list-group-item">
+                    <NavLink tag={Link} className="text-light" to="/home"><AiFillCarryOut />Home</NavLink>
                     </li>
-                    <li class="list-group-item">
+                    <li className="list-group-item">
+                    <NavLink tag={Link} className="text-light" to="/payRuns"><AiFillCarryOut />Pay Runs</NavLink>
+                    </li>
+                    <li className="list-group-item">
                     <NavLink tag={Link} className="text-light" to="/taxes"><HiOutlineReceiptTax />Taxes & Forms</NavLink>
                     </li>
-                    <li class="list-group-item">
+                    <li className="list-group-item">
                     <NavLink tag={Link} className="text-light" to="/benefits"><IoMdUmbrella />Benefits</NavLink>
                     </li>
-                    <li class="list-group-item">
+                    <li className="list-group-item">
                     <NavLink tag={Link} className="text-light" to="/reports"><AiOutlineBarChart />Reports</NavLink>
                     </li>
-                    <li class="list-group-item">
+                    <li className="list-group-item">
                     <NavLink tag={Link} className="text-light" to="/contact"><GrContact />Contact Support</NavLink>
                     </li>
                 </div>
