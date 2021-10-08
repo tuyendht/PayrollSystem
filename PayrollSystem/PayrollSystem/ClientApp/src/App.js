@@ -47,8 +47,8 @@ function App() {
                 <BrowserRouter>
                 <Layout dataFromParent={name}>
                     <Switch>
-                        {/*<Route exact path='/' component={Home} />*/}
-                        <Route exact path='/' component={Home} />
+                            {/*<Route exact path='/' component={SignIn} />*/}
+                        {<Route exact path='/' component={Home} />}
                         <Route path='/home' component={Home} />
                         <Route path='/taxes' component={Taxes} />
                         <Route path='/register' component={Register} />

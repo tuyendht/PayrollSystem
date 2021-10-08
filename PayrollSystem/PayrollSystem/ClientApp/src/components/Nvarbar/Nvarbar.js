@@ -39,6 +39,7 @@ import * as AiIcons from 'react-icons/ai';
 import { Link, } from 'react-router-dom';
 import { Sidebar } from '../Sidebar/Sidebar.js';
 import { IconContext } from 'react-icons';
+import SignIn from '../../auth/Signin';
 
 function Nvarbar() {
     const [collapseOpen, setCollapseOpen] = React.useState(false);
@@ -68,11 +69,12 @@ function Nvarbar() {
                         </form>
                     </div>
                     <div class="d-flex">
-                        <form class="form-inline" action="/search">
-                            <button class="btn btn-success" type="submit">Login</button>
+                        <form class="form-inline" >
+                            <SignIn />
                             <button class="btn btn-success" type="submit">Logout</button>
                         </form>
                     </div>
+                  
 
                 </nav>
                 <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
@@ -82,6 +84,7 @@ function Nvarbar() {
                                 <AiIcons.AiOutlineClose />
                             </Link>
                         </li>
+                       
                         {Sidebar.map((item, index) => {
                             return (
                                 <li key={index} className={item.cName}>
