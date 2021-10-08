@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
+import './assets/css/App.css';
 import { BrowserRouter as Suspense, Switch, Route, BrowserRouter } from "react-router-dom";
 
 import firebase from 'firebase/app';
@@ -13,7 +13,7 @@ import Home from "./views/home.js"
 import Taxes from "./views/taxes.js"
 import Register from './views/register';
 
-
+import "./assets/css/Navbar.css";
 // Configure Firebase.
 const config = {
     apiKey: "AIzaSyC373L24Sdhih-2oDikayTgVT5heMNoQ0U",

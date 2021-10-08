@@ -11,7 +11,7 @@ SignIn.propTypes = {
   // Configure FirebaseUI.
 const uiConfig = {
   // Popup signin flow rather than redirect flow.
-  signInFlow: 'redirect',
+  signInFlow: 'Popup',
   // Redirect to /signedIn after sign in is successful. Alternatively you can provide a callbacks.signInSuccess function.
   signInSuccessUrl: '/home',
   signInOptions: [
@@ -21,9 +21,9 @@ const uiConfig = {
 
 function SignIn() {
   return (
-    <div>
-      <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
-    </div>
+      <div class="row">
+          <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
+      </div>
   );
 }
 
