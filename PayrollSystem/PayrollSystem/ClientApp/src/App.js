@@ -13,7 +13,7 @@ import Home from "./views/home.js"
 import Taxes from "./views/taxes.js"
 import Register from './views/register';
 
-import "./assets/css/Navbar.css";
+//import "./assets/css/Navbar.css";
 // Configure Firebase.
 const config = {
     apiKey: "AIzaSyC373L24Sdhih-2oDikayTgVT5heMNoQ0U",

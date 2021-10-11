@@ -2,7 +2,7 @@ import React, { Component, useState } from 'react';
 
 function Register(){
     const [page,setpage] = useState(0);
-    const [count,setcount] = useState(100/11);
+    const [count,setcount] = useState(100/9);
     const [per,setper] = useState("%");
     const [STT,setSTT] = useState("btn btn-danger");
     const [STT2,setSTT2] = useState("btn btn-success");
@@ -60,16 +60,10 @@ function Register(){
                     <button type="button" class={STT}>7.Sign documents</button>
                      </li>
                      <li className="list-group-item">
-                    <button type="button" class={STT}>8.Verify bank account</button>
+                    <button type="button" class={STT}>8.Workers's comp</button>
                      </li>
                      <li className="list-group-item">
-                    <button type="button" class={STT}>9.Workers's comp</button>
-                     </li>
-                     <li className="list-group-item">
-                    <button type="button" class={STT}>10.Discover apps</button>
-                     </li>
-                     <li className="list-group-item">
-                    <button type="button" class={STT}>11.Choose a plan</button>
+                    <button type="button" class={STT}>9.Choose a plan</button>
                      </li>
                 </div>
 

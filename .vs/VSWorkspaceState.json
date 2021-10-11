@@ -4,8 +4,12 @@
     "\\PayrollSystem",
     "\\PayrollSystem\\PayrollSystem",
     "\\PayrollSystem\\PayrollSystem\\ClientApp",
-    "\\PayrollSystem\\PayrollSystem\\ClientApp\\src"
+    "\\PayrollSystem\\PayrollSystem\\ClientApp\\src",
+    "\\PayrollSystem\\PayrollSystem\\ClientApp\\src\\components",
+    "\\PayrollSystem\\PayrollSystem\\ClientApp\\src\\components\\Nvarbar",
+    "\\PayrollSystem\\PayrollSystem\\ClientApp\\src\\components\\Sidebar",
+    "\\PayrollSystem\\PayrollSystem\\ClientApp\\src\\views"
   ],
-  "SelectedNode": "\\PayrollSystem\\PayrollSystem\\ClientApp\\src\\index.js",
+  "SelectedNode": "\\PayrollSystem\\PayrollSystem\\ClientApp\\src\\views\\register.js",
   "PreviewInSolutionExplorer": false
 }

@@ -4,10 +4,12 @@ import { Link } from 'react-router-dom';
 function Home(){
 return (
     <>
-        <div className ="">
-           <Button tag={Link} to="/register"className="btn btn-primary">Let's Start</Button>
+        <div className='home-container'>
+            <h1>PAYROLLS SYSTEM</h1>
+            <p>This isn't an easy time to run a business.
+                <br></br>But we're here to help
+            </p>
         </div>
-        
     </>
 )
 };
