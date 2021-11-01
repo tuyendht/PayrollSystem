@@ -1,0 +1,12 @@
+﻿{
+    "type": "service_account",
+    "project_id": "payroll-9642e",
+    "private_key_id": "60693094b5b5aed97021966a7fea6eeadcc9c49e",
+    "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCvhdXSUldNTbNh\nJC+DB5l36aQ74DWskWdy5efIFp2sbrSjGJAx3YkSekUwpgvyfzkRZnlJq4BBQ34G\nzxNItUWpgdxxM9PVBubW7NPRGV5N3GEoww8Mx7tCYBCc3W2WfdZ6g7sbWDPqh7Vc\nzRKykzzCZKICQFcmCsnwzWREezRuAD4SbKUlrxbIBhFmWG5oQ46RXtjXg4tXOiDW\nsf4Off2bVKnxu0xt/pz7MhtGrF/p/6N7RsPE0SovR+ObESigeuAOXufC66FGsYjj\nVrvRk17y50wiVILQvX63Jfii/u7BqbN8LjzetEEz7YAzqdhYNyxMKeAGLfeq6/e5\n5rikuM59AgMBAAECggEAIJcIhxc714IkWtaVrc4U7ENo96cfQC31V8uhWDD+0Lvz\ndU8DwwZ/w3sJasmB8WI27eipf4jE9Rk7hrcfPQJPb3RJwokdfXHdHa32fF4p+OoA\n7kkde8GAHwhoPUAN74Ho93GLJb4gUZ0mCxeWr6qP/wYhYKqio9EgAsKYKfD4YK4C\n04s2ICpt63YRfNOYkityonGuMiagrydetMMXR/ApNVO+HncRYrdMmj/XTFtUDAIn\nEQ3d8PjXHD58ZIdEWwaNwfGwCtkX+f7cJWDfx5SU+1z45DsPo6eR6fPOMUd/8QkO\n0fO5HrwNFCsUdBMKf81Z8ZswF1ytWXMALcSeDHFK8QKBgQDnWc6UA9JeKOBQhlZL\nFcqHZmu5ZtcQ5aFM8lC5c+htfUvaZStgjuCA6VbKTZrSazMc4Bhy1H2IrI1/zt22\nkonvBtbImqsvWeTcXUadaZjt8BnqwET70WniwC/5xVlGCHPUJ4mJ76OQOFd9W/eR\nO8J2E1E/vCloUmqvbxrJNfnNuQKBgQDCOUuNeBBeE6UuY+IBNB1ZTVcPfzb0EY7G\nRx1+T21uFrbZHfDbVGvT2yYVhq7FauSSEUdZ9PhbKyfbmQs75YzeYRzD9QLRb3Ad\nVaTNDa+5VHjzKTz7hZt2fDMzzlPT0aVgXdYFVx18f8DfkblwjHRWpcyBDqoHgE0o\ngjxgV4YI5QKBgH39EFzW//c7N31iyxe01EiMZFnhQXn4M7FdvMxh7M/Djk1vDwJU\njLpnWFZvkMLKkllFSMswIPUPUzepBmDoyKkdBlbUtCjjQZkoSs5qtVfOi66l6mtg\njdNoajgRWx6id8Gvjl1J3b8qj6q7LMUw0CPRPUwCQmKHj4Xeca3l8RYxAoGAWecr\nkdCBwwpU66RQeT4mV6/1HLdGOLPn4uAIRu99N/hLqzSwyNXLE8XdWxl8zOUt6G8X\nGAzM6WaQjJXLHW6kRkuthQdkxo1O2EVMg55SOPdhBS2RjNvLmozjJpfbNbFVW8YT\ny2UHwRlhrhtGO1LIh1M31oVzLwW0sYuXZwEcigECgYAtosjJ/dddK/6g9vfBekgH\nuFIgCj/Rqzgd/K36w9FVQzJFzkAtTq0KZNzYyO5L0evhXQ+BSy6VJJggRCfsFLH+\n5EAponGR/B2w7mrLNjDMmJFdutBjwdKkwzjEbnnZuq7el+Hz+O4+urZwUcj9XWyb\ndmszlpVx98DthRAoVSYgcA==\n-----END PRIVATE KEY-----\n",
+    "client_email": "firebase-adminsdk-xwx4d@payroll-9642e.iam.gserviceaccount.com",
+    "client_id": "100865980715621243836",
+    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+    "token_uri": "https://oauth2.googleapis.com/token",
+    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+    "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-xwx4d%40payroll-9642e.iam.gserviceaccount.com"
+}
