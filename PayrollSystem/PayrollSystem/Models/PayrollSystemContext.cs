@@ -175,6 +175,33 @@ namespace PayrollSystem.Models
 
             modelBuilder.Entity<Hraccount>(entity =>
             {
+                entity.ToTable("FeedBack");
+
+                entity.Property(e => e.Id)
+                    .ValueGeneratedNever()
+                    .HasColumnName("ID");
+
+                entity.Property(e => e.CreateDate)
+                    .HasColumnType("datetime")
+                    .HasColumnName("createDate");
+
+                entity.Property(e => e.EmployeeId).HasColumnName("employeeID");
+
+                entity.Property(e => e.PaySlipId).HasColumnName("paySlipID");
+
+                entity.HasOne(d => d.Employee)
+                    .WithMany(p => p.FeedBacks)
+                    .HasForeignKey(d => d.EmployeeId)
+                    .HasConstraintName("FK__FeedBack__employ__3A4CA8FD");
+
+                entity.HasOne(d => d.PaySlip)
+                    .WithMany(p => p.FeedBacks)
+                    .HasForeignKey(d => d.PaySlipId)
+                    .HasConstraintName("FK_FeedBack_PaySlip");
+            });
+
+            modelBuilder.Entity<Hraccount>(entity =>
+            {
                 entity.ToTable("HRAccount");
 
                 entity.HasIndex(e => e.EmailAddress, "UQ__HRAccoun__347C3027EE957465")

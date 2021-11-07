@@ -7,6 +7,7 @@ namespace PayrollSystem.Models
 {
     public partial class FeedBack
     {
+        public int Id { get; set; }
         public string Desciption { get; set; }
         public int? PaySlipId { get; set; }
         public int? EmployeeId { get; set; }

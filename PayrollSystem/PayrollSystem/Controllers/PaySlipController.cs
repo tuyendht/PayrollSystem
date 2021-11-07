@@ -49,7 +49,37 @@ namespace PayrollSystem.Controllers
                     return paySlips;
                 }
 
-            }          
+            }
+            else if (payDate != "" && status == 0)
+            {
+                IEnumerable<PaySlip> paySlips = paySlipRepository.GetPaySlips().Skip(page * pagesize).Take(pagesize)
+                .Where(s => s.PayDate.ToString().Contains(payDate, StringComparison.OrdinalIgnoreCase));
+                if (paySlips != null)
+                {
+                    foreach (PaySlip paySlip in paySlips)
+                    {
+                        paySlip.Employee = employeeRepository.GetEmployeeByID((int)paySlip.EmployeeId);
+                        paySlip.PayStatus = payStatusRepository.GetPayStatusByID(paySlip.PayStatusId);
+                        paySlip.PaySlipDetail = paySlipDetailRepository.GetPaySlipDetailByID((int)paySlip.PaySlipDetailId);
+                    }
+                    return paySlips;
+                }
+            }
+            else if (status != 0 && payDate == "")
+            {
+                IEnumerable<PaySlip> paySlips = paySlipRepository.GetPaySlips().Skip(page * pagesize).Take(pagesize)
+                .Where(s => s.PayStatus.Equals(status));
+                if (paySlips != null)
+                {
+                    foreach (PaySlip paySlip in paySlips)
+                    {
+                        paySlip.Employee = employeeRepository.GetEmployeeByID((int)paySlip.EmployeeId);
+                        paySlip.PayStatus = payStatusRepository.GetPayStatusByID(paySlip.PayStatusId);
+                        paySlip.PaySlipDetail = paySlipDetailRepository.GetPaySlipDetailByID((int)paySlip.PaySlipDetailId);
+                    }
+                    return paySlips;
+                }
+            }
             else
             {
                 IEnumerable<PaySlip> paySlips = paySlipRepository.GetPaySlips().Skip(page * pagesize).Take(pagesize)
@@ -89,9 +119,9 @@ namespace PayrollSystem.Controllers
             PaySlip paySlip = paySlipRepository.GetPaySlipByID(id);
             if (paySlip != null)
             {
-                paySlip.Employee = employeeRepository.GetEmployeeByID((int)paySlip.EmployeeId);
-                paySlip.PayStatus = payStatusRepository.GetPayStatusByID(paySlip.PayStatusId);
-                paySlip.PaySlipDetail = paySlipDetailRepository.GetPaySlipDetailByID((int)paySlip.PaySlipDetailId);
+            paySlip.Employee = employeeRepository.GetEmployeeByID((int)paySlip.EmployeeId);
+            paySlip.PayStatus = payStatusRepository.GetPayStatusByID(paySlip.PayStatusId);
+            paySlip.PaySlipDetail = paySlipDetailRepository.GetPaySlipDetailByID((int)paySlip.PaySlipDetailId);
             }
             return paySlip;
             /*return _payRollDBCotext.Companies.SingleOrDefault(x => x.Id == id);*/
