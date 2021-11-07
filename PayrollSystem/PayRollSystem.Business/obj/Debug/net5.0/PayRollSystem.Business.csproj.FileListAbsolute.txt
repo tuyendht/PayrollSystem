@@ -1,0 +1,15 @@
+C:\Users\Admin\source\repos\PayrollSystem\PayrollSystem\PayRollSystem.Business\bin\Debug\net5.0\PayRollSystem.Business.deps.json
+C:\Users\Admin\source\repos\PayrollSystem\PayrollSystem\PayRollSystem.Business\bin\Debug\net5.0\PayRollSystem.Business.runtimeconfig.json
+C:\Users\Admin\source\repos\PayrollSystem\PayrollSystem\PayRollSystem.Business\bin\Debug\net5.0\PayRollSystem.Business.runtimeconfig.dev.json
+C:\Users\Admin\source\repos\PayrollSystem\PayrollSystem\PayRollSystem.Business\bin\Debug\net5.0\PayRollSystem.Business.dll
+C:\Users\Admin\source\repos\PayrollSystem\PayrollSystem\PayRollSystem.Business\bin\Debug\net5.0\ref\PayRollSystem.Business.dll
+C:\Users\Admin\source\repos\PayrollSystem\PayrollSystem\PayRollSystem.Business\bin\Debug\net5.0\PayRollSystem.Business.pdb
+C:\Users\Admin\source\repos\PayrollSystem\PayrollSystem\PayRollSystem.Business\obj\Debug\net5.0\PayRollSystem.Business.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Admin\source\repos\PayrollSystem\PayrollSystem\PayRollSystem.Business\obj\Debug\net5.0\PayRollSystem.Business.AssemblyInfoInputs.cache
+C:\Users\Admin\source\repos\PayrollSystem\PayrollSystem\PayRollSystem.Business\obj\Debug\net5.0\PayRollSystem.Business.AssemblyInfo.cs
+C:\Users\Admin\source\repos\PayrollSystem\PayrollSystem\PayRollSystem.Business\obj\Debug\net5.0\PayRollSystem.Business.csproj.CoreCompileInputs.cache
+C:\Users\Admin\source\repos\PayrollSystem\PayrollSystem\PayRollSystem.Business\obj\Debug\net5.0\PayRollSystem.Business.dll
+C:\Users\Admin\source\repos\PayrollSystem\PayrollSystem\PayRollSystem.Business\obj\Debug\net5.0\ref\PayRollSystem.Business.dll
+C:\Users\Admin\source\repos\PayrollSystem\PayrollSystem\PayRollSystem.Business\obj\Debug\net5.0\PayRollSystem.Business.pdb
+C:\Users\Admin\source\repos\PayrollSystem\PayrollSystem\PayRollSystem.Business\obj\Debug\net5.0\PayRollSystem.Business.genruntimeconfig.cache
+C:\Users\Admin\source\repos\PayrollSystem\PayrollSystem\PayRollSystem.Business\obj\Debug\net5.0\PayRollSystem.Business.csproj.AssemblyReference.cache

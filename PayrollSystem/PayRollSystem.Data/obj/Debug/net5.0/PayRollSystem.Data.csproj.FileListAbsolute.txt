@@ -1,0 +1,15 @@
+C:\Users\Admin\source\repos\PayrollSystem\PayrollSystem\PayRollSystem.Data\bin\Debug\net5.0\PayRollSystem.Data.deps.json
+C:\Users\Admin\source\repos\PayrollSystem\PayrollSystem\PayRollSystem.Data\bin\Debug\net5.0\PayRollSystem.Data.runtimeconfig.json
+C:\Users\Admin\source\repos\PayrollSystem\PayrollSystem\PayRollSystem.Data\bin\Debug\net5.0\PayRollSystem.Data.runtimeconfig.dev.json
+C:\Users\Admin\source\repos\PayrollSystem\PayrollSystem\PayRollSystem.Data\bin\Debug\net5.0\PayRollSystem.Data.dll
+C:\Users\Admin\source\repos\PayrollSystem\PayrollSystem\PayRollSystem.Data\bin\Debug\net5.0\ref\PayRollSystem.Data.dll
+C:\Users\Admin\source\repos\PayrollSystem\PayrollSystem\PayRollSystem.Data\bin\Debug\net5.0\PayRollSystem.Data.pdb
+C:\Users\Admin\source\repos\PayrollSystem\PayrollSystem\PayRollSystem.Data\obj\Debug\net5.0\PayRollSystem.Data.csproj.AssemblyReference.cache
+C:\Users\Admin\source\repos\PayrollSystem\PayrollSystem\PayRollSystem.Data\obj\Debug\net5.0\PayRollSystem.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Admin\source\repos\PayrollSystem\PayrollSystem\PayRollSystem.Data\obj\Debug\net5.0\PayRollSystem.Data.AssemblyInfoInputs.cache
+C:\Users\Admin\source\repos\PayrollSystem\PayrollSystem\PayRollSystem.Data\obj\Debug\net5.0\PayRollSystem.Data.AssemblyInfo.cs
+C:\Users\Admin\source\repos\PayrollSystem\PayrollSystem\PayRollSystem.Data\obj\Debug\net5.0\PayRollSystem.Data.csproj.CoreCompileInputs.cache
+C:\Users\Admin\source\repos\PayrollSystem\PayrollSystem\PayRollSystem.Data\obj\Debug\net5.0\PayRollSystem.Data.dll
+C:\Users\Admin\source\repos\PayrollSystem\PayrollSystem\PayRollSystem.Data\obj\Debug\net5.0\ref\PayRollSystem.Data.dll
+C:\Users\Admin\source\repos\PayrollSystem\PayrollSystem\PayRollSystem.Data\obj\Debug\net5.0\PayRollSystem.Data.pdb
+C:\Users\Admin\source\repos\PayrollSystem\PayrollSystem\PayRollSystem.Data\obj\Debug\net5.0\PayRollSystem.Data.genruntimeconfig.cache
